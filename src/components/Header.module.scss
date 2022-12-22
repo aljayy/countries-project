@@ -1,5 +1,6 @@
+@import "../variables.module";
+
 header {
-  background-color: hsl(0, 0%, 100%);
   height: 8rem;
   padding: 0 1.6rem;
   display: flex;
@@ -10,26 +11,16 @@ header {
   h1 {
     font-size: 1.4rem;
   }
+}
 
-  .mode-toggler {
-    display: flex;
-    align-items: center;
+.light,
+header {
+  background-color: $light-mode-elements;
+  color: $light-mode-text;
+}
 
-    .icon {
-      height: 1.2rem;
-      width: 1.2rem;
-
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-      }
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-left: 1rem;
-      font-weight: 600;
-    }
-  }
+.dark,
+header {
+  background-color: $dark-mode-elements;
+  color: $dark-mode-text;
 }

@@ -1,18 +1,16 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import ThemeToggler from "./UI/ThemeToggler";
+import ThemeContext from "../context/theme-context";
 import classes from "./Header.module.scss";
-import darkmode from "../assets/darkmode.svg";
 
 function Header() {
+  const themeCtx = useContext(ThemeContext);
+  const theme = themeCtx.theme === "light" ? classes.light : classes.dark;
+
   return (
-    <header>
+    <header className={theme}>
       <h1>Where in the world?</h1>
-      <div className={classes["mode-toggler"]}>
-        <div className={classes.icon}>
-          <img src={darkmode} alt="Dark Mode Toggle" />
-        </div>
-        <p>Dark Mode</p>
-      </div>
+      <ThemeToggler />
     </header>
   );
 }
