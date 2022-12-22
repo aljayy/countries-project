@@ -1,0 +1,29 @@
+.mode-toggler {
+  // Removing default button styling
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  //
+  display: flex;
+  align-items: center;
+
+  .icon {
+    height: 1.2rem;
+    width: 1.2rem;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    font-weight: 600;
+  }
+}
