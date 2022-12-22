@@ -1,14 +1,17 @@
-// Dark Mode Background
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
 $dark-mode-bg: hsl(207, 26%, 17%);
-// Dark Mode Elements
+
 $dark-mode-elements: hsl(209, 23%, 22%);
-// Dark Mode Text
+
 $dark-mode-text: hsl(0, 0%, 100%);
-// Light Mode Background
+
 $light-mode-bg: hsl(0, 0%, 98%);
-// Light Mode Elements
+
 $light-mode-elements: hsl(0, 0%, 100%);
-// Light Mode Text
+
 $light-mode-text: hsl(200, 15%, 8%);
-// Light Mode Input
+
 $light-mode-input: hsl(0, 0%, 52%);
+
+$main-font: "Nunito Sans", sans-serif;
