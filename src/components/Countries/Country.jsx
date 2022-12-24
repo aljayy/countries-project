@@ -20,7 +20,7 @@ function Country() {
       return {
         flag: country.flags.svg,
         name: country.name.official,
-        population: country.population,
+        population: country.population.toLocaleString(),
         region: country.region,
         capital: country.capital,
       };
