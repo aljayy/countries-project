@@ -40,12 +40,10 @@ export function CountryContextProvider({ children }) {
 
   const filterByName = useCallback(async () => {
     setLoading(true);
-    console.log("filterByName");
+
     const response = await fetch(
       `https://restcountries.com/v3.1/name/${countryName}`
     );
-
-    console.log(response);
 
     const data = await response.json();
 
@@ -64,9 +62,8 @@ export function CountryContextProvider({ children }) {
   }, [countryName]);
 
   useEffect(() => {
-    if (countryName !== null) {
+    if (countryName !== null && countryName !== "") {
       const timer = setTimeout(() => {
-        console.log("use effect ran");
         filterByName();
       }, 500);
 
