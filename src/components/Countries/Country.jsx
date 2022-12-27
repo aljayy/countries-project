@@ -1,37 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Loader from "../UI/Loader";
 import ThemeContext from "../../context/theme-context";
 import classes from "./Country.module.scss";
+import CountryContext from "../../context/countries-context";
 
 function Country() {
-  const [countries, setCountries] = useState([]);
-  const [loading, setLoading] = useState(false);
   const { theme } = useContext(ThemeContext);
+  const { countries, loading } = useContext(CountryContext);
   const themeClasses = theme === "light" ? classes.light : classes.dark;
-
-  useEffect(() => {
-    sendRequest();
-  }, []);
-
-  async function sendRequest() {
-    setLoading(true);
-    const response = await fetch("https://restcountries.com/v3.1/all");
-
-    const data = await response.json();
-
-    const countries = data.map((country) => {
-      return {
-        flag: country.flags.svg,
-        name: country.name.official,
-        population: country.population.toLocaleString(),
-        region: country.region,
-        capital: country.capital,
-      };
-    });
-
-    setCountries(countries);
-    setLoading(false);
-  }
 
   return (
     <>
