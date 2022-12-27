@@ -17,6 +17,19 @@ export function CountryContextProvider({ children }) {
     retrieveAllCountries();
   }, []);
 
+  function transformData(data) {
+    return data.map((country) => {
+      return {
+        flag: country.flags.svg,
+        name: country.name.official,
+        population: country.population.toLocaleString(),
+        region: country.region,
+        capital: country.capital,
+        id: country.ccn3,
+      };
+    });
+  }
+
   async function retrieveAllCountries() {
     setLoading(true);
 
@@ -24,15 +37,7 @@ export function CountryContextProvider({ children }) {
 
     const data = await response.json();
 
-    const countries = data.map((country) => {
-      return {
-        flag: country.flags.svg,
-        name: country.name.official,
-        population: country.population.toLocaleString(),
-        region: country.region,
-        capital: country.capital,
-      };
-    });
+    const countries = transformData(data);
 
     setCountries(countries);
     setLoading(false);
@@ -47,15 +52,7 @@ export function CountryContextProvider({ children }) {
 
     const data = await response.json();
 
-    const countries = data.map((country) => {
-      return {
-        flag: country.flags.svg,
-        name: country.name.official,
-        population: country.population.toLocaleString(),
-        region: country.region,
-        capital: country.capital,
-      };
-    });
+    const countries = transformData(data);
 
     setCountries(countries);
     setLoading(false);
@@ -81,15 +78,7 @@ export function CountryContextProvider({ children }) {
 
     const data = await response.json();
 
-    const countries = data.map((country) => {
-      return {
-        flag: country.flags.svg,
-        name: country.name.official,
-        population: country.population.toLocaleString(),
-        region: country.region,
-        capital: country.capital,
-      };
-    });
+    const countries = transformData(data);
 
     setCountries(countries);
     setLoading(false);
