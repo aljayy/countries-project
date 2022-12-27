@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import CountryContext from "../../context/countries-context";
 import ThemeContext from "../../context/theme-context";
 import light from "../../assets/lightdropdown.svg";
 import dark from "../../assets/darkdropdown.svg";
@@ -7,6 +8,7 @@ import classes from "./RegionFilter.module.scss";
 function RegionFilter() {
   const [region, setRegion] = useState("Filter by Region");
   const { theme } = useContext(ThemeContext);
+  const { filterByRegion } = useContext(CountryContext);
   const themeClasses = theme === "light" ? classes.light : classes.dark;
   const arrow = theme === "light" ? light : dark;
 
@@ -22,8 +24,7 @@ function RegionFilter() {
 
   function selectedRegionHandler(country) {
     setRegion(country);
-
-    // showRegionsHandler();
+    filterByRegion(country.toLowerCase());
   }
   return (
     <div className={`${classes.dropdown} ${themeClasses}`}>
