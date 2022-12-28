@@ -19,7 +19,7 @@ function CountryDetails() {
 
     console.log(data);
 
-    const countryData = data.map((country) => {
+    let countryData = data.map((country) => {
       return {
         borderCountries: country.borders,
         capital: country.capital,
@@ -33,6 +33,29 @@ function CountryDetails() {
         subregion: country.subregion,
         tld: country.tld,
       };
+    });
+
+    console.log(countryData);
+
+    let borderCountries = "";
+    for (let i = 0; i < countryData[0].borderCountries.length; i++) {
+      if (i === 0) {
+        borderCountries += countryData[0].borderCountries[i];
+      } else {
+        borderCountries += "," + countryData[0].borderCountries[i];
+      }
+    }
+
+    const borderResponse = await fetch(
+      `https://restcountries.com/v3.1/alpha?codes=${borderCountries}`
+    );
+
+    const borderData = await borderResponse.json();
+
+    console.log(borderData);
+
+    countryData[0].borderCountries = borderData.map((country) => {
+      return country.name.common;
     });
 
     console.log(countryData);
@@ -86,6 +109,14 @@ function CountryDetails() {
               <span>Languages: </span>
               {countryDetails[0].languages}
             </p>
+            <h3>Border Countries:</h3>
+            <div className={classes.border}>
+              {countryDetails[0].borderCountries.map((border) => {
+                return (
+                  <div className={classes["border-country"]}>{border}</div>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}

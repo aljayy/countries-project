@@ -61,5 +61,29 @@
     span {
       font-weight: 600;
     }
+
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 4.2rem 0 2.8rem 0;
+    }
+
+    .border {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem;
+      padding-bottom: 8rem;
+
+      .border-country {
+        height: 3.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // TEMP STYLING
+        background-color: $light-mode-elements;
+        color: $light-mode-text;
+        box-shadow: 0 0 10px 2px hsl(0, 0%, 90%);
+      }
+    }
   }
 }
