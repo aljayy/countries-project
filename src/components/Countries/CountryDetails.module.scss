@@ -1,0 +1,65 @@
+@import "../../variables.module";
+
+.country-details-wrapper {
+  padding: 5rem 3.5rem 0 3.5rem;
+
+  .back {
+    border-radius: 0.2rem;
+    height: 3.7rem;
+    width: 13rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    margin-bottom: 8rem;
+    // TEMP STYLING
+    background-color: $light-mode-elements;
+    color: $light-mode-text;
+    box-shadow: 0 0 10px 2px hsl(0, 0%, 90%);
+
+    .icon-wrapper {
+      height: 2rem;
+      width: 2rem;
+
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    span {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+  }
+
+  .flag-wrapper {
+    height: 28.4rem;
+    // height: 100%;
+    width: 100%;
+    margin-bottom: 6.2rem;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  h2 {
+    font-size: 2.7rem;
+  }
+
+  .details {
+    margin-top: 4.4rem;
+    font-size: 1.6rem;
+
+    p {
+      padding-bottom: 2rem;
+    }
+    span {
+      font-weight: 600;
+    }
+  }
+}
