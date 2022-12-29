@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import CountryContext from "../../context/countries-context";
+import Loader from "../UI/Loader";
 import classes from "./CountryDetails.module.scss";
 import lightarrow from "../../assets/lightbackarrow.svg";
 
@@ -15,8 +16,8 @@ function CountryDetails() {
 
   return (
     <>
-      {countryDetails.length === 0 && <p>Loading...</p>}
-      {countryDetails.length > 0 && (
+      {loading && <Loader />}
+      {!loading && countryDetails.length > 0 && (
         <div className={classes["country-details-wrapper"]}>
           <Link className={classes.back} style={{ textDecoration: "none" }}>
             <div className={classes["icon-wrapper"]}>
