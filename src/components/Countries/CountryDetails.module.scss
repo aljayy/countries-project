@@ -58,6 +58,10 @@
 
     p {
       padding-bottom: 2rem;
+
+      &:nth-child(6) {
+        margin-top: 2rem;
+      }
     }
 
     span {
