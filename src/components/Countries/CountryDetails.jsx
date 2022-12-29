@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import CountryContext from "../../context/countries-context";
 import ThemeContext from "../../context/theme-context";
 import Loader from "../UI/Loader";
@@ -8,6 +8,7 @@ import lightarrow from "../../assets/lightbackarrow.svg";
 import darkarrow from "../../assets/darkbackarrow.svg";
 
 function CountryDetails() {
+  const navigate = useNavigate();
   const { retrieveCountryDetails, loading, countryDetails } =
     useContext(CountryContext);
   const { theme } = useContext(ThemeContext);
@@ -26,12 +27,17 @@ function CountryDetails() {
         <div
           className={`${classes["country-details-wrapper"]} ${themeClasses}`}
         >
-          <Link className={classes.back} style={{ textDecoration: "none" }}>
+          <button
+            className={classes.back}
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
             <div className={classes["icon-wrapper"]}>
               <img src={arrow} alt="Arrow Icon" />
             </div>
             <span>Back</span>
-          </Link>
+          </button>
           <div className={classes["flag-wrapper"]}>
             <img src={countryDetails[0].flag} alt="Country Flag" />
           </div>
