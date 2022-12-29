@@ -12,10 +12,6 @@
     justify-content: space-between;
     padding: 0 3rem;
     margin-bottom: 8rem;
-    // TEMP STYLING
-    background-color: $light-mode-elements;
-    color: $light-mode-text;
-    box-shadow: 0 0 10px 2px hsl(0, 0%, 90%);
 
     .icon-wrapper {
       height: 2rem;
@@ -36,7 +32,6 @@
 
   .flag-wrapper {
     height: 28.4rem;
-    // height: 100%;
     width: 100%;
     margin-bottom: 6.2rem;
 
@@ -79,11 +74,39 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        // TEMP STYLING
-        background-color: $light-mode-elements;
-        color: $light-mode-text;
-        box-shadow: 0 0 10px 2px hsl(0, 0%, 90%);
       }
     }
+  }
+}
+
+.light {
+  color: $light-mode-text;
+
+  .back {
+    background-color: $light-mode-elements;
+    color: $light-mode-text;
+    box-shadow: $light-mode-shadow;
+  }
+
+  .details .border .border-country {
+    background-color: $light-mode-elements;
+    color: $light-mode-text;
+    box-shadow: $light-mode-shadow;
+  }
+}
+
+.dark {
+  color: $dark-mode-text;
+
+  .back {
+    background-color: $dark-mode-elements;
+    color: $dark-mode-text;
+    box-shadow: $dark-mode-shadow;
+  }
+
+  .details .border .border-country {
+    background-color: $dark-mode-elements;
+    color: $dark-mode-text;
+    box-shadow: $dark-mode-shadow;
   }
 }

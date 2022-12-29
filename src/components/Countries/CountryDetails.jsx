@@ -1,14 +1,19 @@
 import React, { useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import CountryContext from "../../context/countries-context";
+import ThemeContext from "../../context/theme-context";
 import Loader from "../UI/Loader";
 import classes from "./CountryDetails.module.scss";
 import lightarrow from "../../assets/lightbackarrow.svg";
+import darkarrow from "../../assets/darkbackarrow.svg";
 
 function CountryDetails() {
   const { retrieveCountryDetails, loading, countryDetails } =
     useContext(CountryContext);
+  const { theme } = useContext(ThemeContext);
+  const themeClasses = theme === "light" ? classes.light : classes.dark;
   const { id } = useParams();
+  const arrow = theme === "light" ? lightarrow : darkarrow;
 
   useEffect(() => {
     retrieveCountryDetails(id);
@@ -18,10 +23,12 @@ function CountryDetails() {
     <>
       {loading && <Loader />}
       {!loading && countryDetails.length > 0 && (
-        <div className={classes["country-details-wrapper"]}>
+        <div
+          className={`${classes["country-details-wrapper"]} ${themeClasses}`}
+        >
           <Link className={classes.back} style={{ textDecoration: "none" }}>
             <div className={classes["icon-wrapper"]}>
-              <img src={lightarrow} alt="Arrow Icon" />
+              <img src={arrow} alt="Arrow Icon" />
             </div>
             <span>Back</span>
           </Link>
