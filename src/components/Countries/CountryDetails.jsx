@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import classes from "./CountryDetails.module.scss";
 import lightarrow from "../../assets/lightbackarrow.svg";
-import darkarrow from "../../assets/darkbackarrow.svg";
 
 function CountryDetails() {
   const [countryDetails, setCountryDetails] = useState([]);
   const { id } = useParams();
 
-  useEffect(() => {
-    retrieveCountryDetails();
-  }, []);
-
-  async function retrieveCountryDetails() {
+  const retrieveCountryDetails = useCallback(async () => {
     const response = await fetch(`https://restcountries.com/v3.1/alpha/${id}`);
 
     const data = await response.json();
-
-    console.log(data);
 
     let countryData = data.map((country) => {
       return {
@@ -35,8 +28,6 @@ function CountryDetails() {
       };
     });
 
-    console.log(countryData);
-
     let borderCountries = "";
     for (let i = 0; i < countryData[0].borderCountries.length; i++) {
       if (i === 0) {
@@ -52,18 +43,20 @@ function CountryDetails() {
 
     const borderData = await borderResponse.json();
 
-    console.log(borderData);
-
     countryData[0].borderCountries = borderData.map((country) => {
-      return country.name.common;
+      return { name: country.name.common, id: country.ccn3 };
     });
 
-    console.log(countryData);
-
     setCountryDetails(countryData);
-  }
+  }, [id]);
+
+  useEffect(() => {
+    retrieveCountryDetails();
+  }, [retrieveCountryDetails]);
+
   return (
     <>
+      {countryDetails.length === 0 && <p>Loading...</p>}
       {countryDetails.length > 0 && (
         <div className={classes["country-details-wrapper"]}>
           <Link className={classes.back} style={{ textDecoration: "none" }}>
@@ -113,7 +106,14 @@ function CountryDetails() {
             <div className={classes.border}>
               {countryDetails[0].borderCountries.map((border) => {
                 return (
-                  <div className={classes["border-country"]}>{border}</div>
+                  <Link
+                    to={`/country/${border.id}`}
+                    style={{ textDecoration: "none" }}
+                    preventScrollReset={false}
+                    className={classes["border-country"]}
+                  >
+                    {border.name}
+                  </Link>
                 );
               })}
             </div>
