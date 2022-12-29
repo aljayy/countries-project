@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import ThemeToggler from "./UI/ThemeToggler";
 import ThemeContext from "../context/theme-context";
 import classes from "./Header.module.scss";
@@ -9,7 +10,9 @@ function Header() {
 
   return (
     <header className={theme}>
-      <h1>Where in the world?</h1>
+      <Link to="/" className={classes.link} style={{ textDecoration: "none" }}>
+        Where in the world?
+      </Link>
       <ThemeToggler />
     </header>
   );
