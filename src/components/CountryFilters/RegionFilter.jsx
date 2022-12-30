@@ -7,34 +7,43 @@ import classes from "./RegionFilter.module.scss";
 
 function RegionFilter() {
   const [region, setRegion] = useState("Filter by Region");
+  const [showDropdown, setShowDropdown] = useState(false);
   const { theme } = useContext(ThemeContext);
   const { filterByRegion } = useContext(CountryContext);
   const themeClasses = theme === "light" ? classes.light : classes.dark;
+  const dropdownClasses = showDropdown === false ? "" : classes.show;
   const arrow = theme === "light" ? light : dark;
 
-  // Implementation to hide regions for drop down menu when region is selected. A bit buggy for now. Will come back to this later.
+  function renderDropdown() {
+    setShowDropdown(true);
+  }
 
-  // const hideDropdown = showRegions ? "" : classes.hide;
-
-  // const [showRegions, setShowRegions] = useState(false);
-
-  // function showRegionsHandler() {
-  //   setShowRegions((prevState) => !prevState);
-  // }
+  function hideDropdown() {
+    setShowDropdown(false);
+  }
 
   function selectedRegionHandler(country) {
     setRegion(country);
     filterByRegion(country.toLowerCase());
   }
+
   return (
     <div className={`${classes.dropdown} ${themeClasses}`}>
-      <button className={`${classes.menu} `}>
+      <button
+        className={`${classes.menu} `}
+        onMouseEnter={renderDropdown}
+        onClick={renderDropdown}
+      >
         {region}
         <div>
           <img src={arrow} alt="Dropdown Menu Arrow" />
         </div>
       </button>
-      <div className={classes["dropdown-options"]}>
+      <div
+        className={`${classes["dropdown-options"]} ${dropdownClasses}`}
+        onClick={hideDropdown}
+        onMouseLeave={hideDropdown}
+      >
         <div onClick={() => selectedRegionHandler("Africa")}>Africa</div>
         <div onClick={() => selectedRegionHandler("America")}>America</div>
         <div onClick={() => selectedRegionHandler("Asia")}>Asia</div>

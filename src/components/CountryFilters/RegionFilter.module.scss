@@ -25,6 +25,7 @@
 
   .dropdown-options {
     display: none;
+    position: absolute;
     border-radius: 1rem;
     overflow: auto;
     margin-top: 0.5rem;
@@ -36,10 +37,6 @@
     div {
       margin-bottom: 1.6rem;
     }
-  }
-
-  &:hover .dropdown-options {
-    display: block;
   }
 }
 
@@ -62,6 +59,6 @@
 }
 
 // Implementation for hiding dropdown menu
-// .hide {
-//   display: none !important;
-// }
+.show {
+  display: block !important;
+}
