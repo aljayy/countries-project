@@ -6,6 +6,8 @@ $dark-mode-elements: hsl(209, 23%, 22%);
 
 $dark-mode-text: hsl(0, 0%, 100%);
 
+$dark-mode-shadow: 0 0 10px 2px hsl(0, 0%, 12%);
+
 $light-mode-bg: hsl(0, 0%, 98%);
 
 $light-mode-elements: hsl(0, 0%, 100%);
@@ -13,5 +15,7 @@ $light-mode-elements: hsl(0, 0%, 100%);
 $light-mode-text: hsl(200, 15%, 8%);
 
 $light-mode-input: hsl(0, 0%, 52%);
+
+$light-mode-shadow: 0 0 10px 2px hsl(0, 0%, 90%);
 
 $main-font: "Nunito Sans", sans-serif;
