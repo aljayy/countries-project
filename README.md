@@ -90,7 +90,3 @@ useEffect(() => {
   }
 }, [countryName, filterByName]);
 ```
-
-```
-
-```
