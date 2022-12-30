@@ -6,7 +6,7 @@ import classes from "./ThemeToggler.module.scss";
 
 function ThemeToggler() {
   const themeCtx = useContext(ThemeContext);
-  const themeText = themeCtx.theme === "light" ? "Dark Theme" : "Light Theme";
+  const themeText = themeCtx.theme === "light" ? "Dark Mode" : "Light Mode";
   const icon = themeCtx.theme === "light" ? darkIcon : lightIcon;
 
   return (
