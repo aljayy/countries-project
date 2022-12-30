@@ -15,10 +15,6 @@ export function CountryContextProvider({ children }) {
   const [countryDetails, setCountryDetails] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    retrieveAllCountries();
-  }, []);
-
   function transformData(data) {
     return data.map((country) => {
       return {
@@ -32,7 +28,7 @@ export function CountryContextProvider({ children }) {
     });
   }
 
-  async function retrieveAllCountries() {
+  const retrieveAllCountries = useCallback(async () => {
     setLoading(true);
 
     const response = await fetch("https://restcountries.com/v3.1/all");
@@ -43,7 +39,7 @@ export function CountryContextProvider({ children }) {
 
     setCountries(countries);
     setLoading(false);
-  }
+  }, []);
 
   const filterByName = useCallback(async () => {
     setLoading(true);
@@ -147,6 +143,7 @@ export function CountryContextProvider({ children }) {
         filterByName,
         setCountryName,
         retrieveCountryDetails,
+        retrieveAllCountries,
       }}
     >
       {children}

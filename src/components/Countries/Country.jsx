@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../UI/Loader";
 import ThemeContext from "../../context/theme-context";
@@ -7,8 +7,13 @@ import CountryContext from "../../context/countries-context";
 
 function Country() {
   const { theme } = useContext(ThemeContext);
-  const { countries, loading } = useContext(CountryContext);
+  const { retrieveAllCountries, countries, loading } =
+    useContext(CountryContext);
   const themeClasses = theme === "light" ? classes.light : classes.dark;
+
+  useEffect(() => {
+    retrieveAllCountries();
+  }, [retrieveAllCountries]);
 
   return (
     <>
