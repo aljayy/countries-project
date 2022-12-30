@@ -1,3 +1,15 @@
 .wrapper {
-  padding-top: 4rem;
+  padding: 4rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, max(26rem));
+  row-gap: 7.5rem;
+  column-gap: 7.5rem;
+  justify-content: space-evenly;
+  margin: 0rem 5.5rem 0 5.5rem;
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    grid-template-columns: repeat(4, 26rem);
+  }
 }
