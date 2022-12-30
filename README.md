@@ -54,10 +54,5 @@ let countryData = data.map((country) => {
 - Although this application is on the smaller side, I wanted to keep practicing on managing state at a global scope. This really shined when I used React Context to manage the state for toggling the theme since every components styling had to change.
 - Using SCSS modules stylesheet is a great way to scope locally by default.
 - I wanted to try and style the dropdown as it was shown in the design files but that required a work around since the <select> element wouldn't allow such stylings. While it worked, I'd probably use Material UI next time to achieve this.
+
 - I had a couple of options in order to implement the search functionality.
-
-  - Send a request when the user clicked the "enter" key.
-  - Implement debouncing and only send a request when the timer has expired.
-  - Send a request on every onChange event in the input.
-
-- The first option would be a good implementation but the design files don't show a submit/enter button on the input field so it's not a step that would be very apparent to the user. Option 3 was more of a last resort, sending a request on every onChange event would be much too expensive in terms of server and performance costs. I ended up choosing option 2 because there's nothing the user needs to do in order to send a request while limiting the rate at which I'm sending requests to the server. [Here's how I implemented that](https://github.com/aljayy/countries-project/blob/main/src/context/countries-context.js#L63-L87).
