@@ -60,37 +60,4 @@ let countryData = data.map((country) => {
   2. Implement debouncing and only send a request when the timer has expired.
   3. Send a request on every onChange event in the input.
 
-  - The first option would be a good implementation but the design files don't show a submit/enter button on the input field so it's not a step that would be very apparent to the user. Option 3 was more of a last resort, sending a request on every onChange event would be much too expensive in terms of server and performance costs. I ended up choosing option 2 because there's nothing the user needs to do in order to send a request while limiting the rate at which I'm sending requests to the server. Here's how I implemented that 👇
-
-```js
-const filterByName = useCallback(async () => {
-  setLoading(true);
-
-  const response = await fetch(
-    `https://restcountries.com/v3.1/name/${countryName}`
-  );
-
-  const data = await response.json();
-
-  const countries = transformData(data);
-
-  setCountries(countries);
-  setLoading(false);
-}, [countryName]);
-
-useEffect(() => {
-  if (countryName !== null && countryName !== "") {
-    const timer = setTimeout(() => {
-      filterByName();
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }
-}, [countryName, filterByName]);
-```
-
-```
-
-```
+  - The first option would be a good implementation but the design files don't show a submit/enter button on the input field so it's not a step that would be very apparent to the user. Option 3 was more of a last resort, sending a request on every onChange event would be much too expensive in terms of server and performance costs. I ended up choosing option 2 because there's nothing the user needs to do in order to send a request while limiting the rate at which I'm sending requests to the server. [Here's how I implemented that](https://github.com/aljayy/countries-project/blob/main/src/context/countries-context.js#L63-L87).
