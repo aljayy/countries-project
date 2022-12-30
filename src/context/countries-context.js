@@ -19,7 +19,7 @@ export function CountryContextProvider({ children }) {
     return data.map((country) => {
       return {
         flag: country.flags.svg,
-        name: country.name.official,
+        name: country.name.common,
         population: country.population.toLocaleString(),
         region: country.region,
         capital: country.capital,
