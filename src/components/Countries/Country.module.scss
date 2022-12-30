@@ -1,8 +1,7 @@
 @import "../../variables.module";
 
 .country-card-wrapper {
-  margin: 0rem 5.5rem 0 5.5rem;
-  padding-bottom: 4rem;
+  max-width: 26rem;
 
   .flag {
     width: 100%;
@@ -23,7 +22,7 @@
     border-bottom-right-radius: 1rem;
 
     h2 {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       margin-bottom: 2.4rem;
     }
 
