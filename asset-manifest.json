@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/countries-project/static/css/main.5eebf4bd.css",
-    "main.js": "/countries-project/static/js/main.6aefbde5.js",
+    "main.css": "/countries-project/static/css/main.2f3daeed.css",
+    "main.js": "/countries-project/static/js/main.92be5f7c.js",
     "static/media/lightmode.svg": "/countries-project/static/media/lightmode.e104a09d863f129a94a9966b57413282.svg",
     "static/media/darkdropdown.svg": "/countries-project/static/media/darkdropdown.8cb06a1274e819657e3342ccaa6d838a.svg",
     "static/media/lightdropdown.svg": "/countries-project/static/media/lightdropdown.139ac6e01342ad099ec39b8512406b05.svg",
@@ -11,11 +11,11 @@
     "static/media/darkmodesearch.svg": "/countries-project/static/media/darkmodesearch.00f088b635aee75123f56464896398fa.svg",
     "index.html": "/countries-project/index.html",
     "static/media/darkmode.svg": "/countries-project/static/media/darkmode.5ac9093ca3966742e60fee11043e7bfa.svg",
-    "main.5eebf4bd.css.map": "/countries-project/static/css/main.5eebf4bd.css.map",
-    "main.6aefbde5.js.map": "/countries-project/static/js/main.6aefbde5.js.map"
+    "main.2f3daeed.css.map": "/countries-project/static/css/main.2f3daeed.css.map",
+    "main.92be5f7c.js.map": "/countries-project/static/js/main.92be5f7c.js.map"
   },
   "entrypoints": [
-    "static/css/main.5eebf4bd.css",
-    "static/js/main.6aefbde5.js"
+    "static/css/main.2f3daeed.css",
+    "static/js/main.92be5f7c.js"
   ]
 }
