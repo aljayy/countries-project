@@ -24,9 +24,7 @@ function CountryDetails() {
     <>
       {loading && <Loader />}
       {!loading && countryDetails.length > 0 && (
-        <div
-          className={`${classes["country-details-wrapper"]} ${themeClasses}`}
-        >
+        <div className={`${classes["country-wrapper"]} ${themeClasses}`}>
           <button
             className={classes.back}
             onClick={() => {
@@ -38,62 +36,70 @@ function CountryDetails() {
             </div>
             <span>Back</span>
           </button>
-          <div className={classes["flag-wrapper"]}>
-            <img src={countryDetails[0].flag} alt="Country Flag" />
-          </div>
-          <h2>{countryDetails[0].name}</h2>
-          <div className={classes.details}>
-            <p>
-              <span>Native Name: </span>
-              {countryDetails[0].native}
-            </p>
-            <p>
-              <span>Population: </span>
-              {countryDetails[0].population}
-            </p>
-            <p>
-              <span>Region: </span>
-              {countryDetails[0].region}
-            </p>
-            <p>
-              <span>Subregion: </span>
-              {countryDetails[0].subregion}
-            </p>
-            <p>
-              <span>Capital: </span>
-              {countryDetails[0].capital}
-            </p>
-            <p>
-              <span>Top Level Doman: </span>
-              {countryDetails[0].tld}
-            </p>
-            <p>
-              <span>Currencies: </span>
-              {countryDetails[0].currency}
-            </p>
-            <p>
-              <span>Languages: </span>
-              {countryDetails[0].languages}
-            </p>
-            {countryDetails[0].borderCountries.length > 0 && (
-              <>
-                <h3>Border Countries:</h3>
-                <div className={classes.border}>
-                  {countryDetails[0].borderCountries.map((border) => {
-                    return (
-                      <Link
-                        to={`/country/${border.id}`}
-                        style={{ textDecoration: "none" }}
-                        preventScrollReset={false}
-                        className={classes["border-country"]}
-                      >
-                        {border.name}
-                      </Link>
-                    );
-                  })}
+          <div className={classes["details-wrapper"]}>
+            <div className={classes["flag-wrapper"]}>
+              <img src={countryDetails[0].flag} alt="Country Flag" />
+            </div>
+            <div className={classes.wrapper}>
+              <h2>{countryDetails[0].name}</h2>
+              <div className={classes.details}>
+                <div>
+                  <p>
+                    <span>Native Name: </span>
+                    {countryDetails[0].native}
+                  </p>
+                  <p>
+                    <span>Population: </span>
+                    {countryDetails[0].population}
+                  </p>
+                  <p>
+                    <span>Region: </span>
+                    {countryDetails[0].region}
+                  </p>
+                  <p>
+                    <span>Subregion: </span>
+                    {countryDetails[0].subregion}
+                  </p>
+                  <p>
+                    <span>Capital: </span>
+                    {countryDetails[0].capital}
+                  </p>
                 </div>
-              </>
-            )}
+                <div>
+                  <p>
+                    <span>Top Level Doman: </span>
+                    {countryDetails[0].tld}
+                  </p>
+                  <p>
+                    <span>Currencies: </span>
+                    {countryDetails[0].currency}
+                  </p>
+                  <p>
+                    <span>Languages: </span>
+                    {countryDetails[0].languages}
+                  </p>
+                </div>
+              </div>
+              {countryDetails[0].borderCountries.length > 0 && (
+                <div className={classes.borders}>
+                  <h3>Border Countries:</h3>
+                  <div className={classes.border}>
+                    {countryDetails[0].borderCountries.map((border) => {
+                      return (
+                        <Link
+                          to={`/country/${border.id}`}
+                          style={{ textDecoration: "none" }}
+                          preventScrollReset={false}
+                          className={classes["border-country"]}
+                        >
+                          {border.name}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
